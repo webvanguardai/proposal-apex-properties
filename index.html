@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propuesta Web Vanguard × Apex Properties Dubai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0A0A0A;
+      --bg2: #111111;
+      --bg3: #161616;
+      --gold: #C9A96E;
+      --gold-light: #E8D5A3;
+      --navy: #0A1628;
+      --white: #FFFFFF;
+      --gray: #888888;
+      --border: rgba(201,169,110,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #0A0A0A;
+    }
+
+    .logo-text {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    .logo-sub {
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.25em;
+      display: block;
+      text-transform: uppercase;
+    }
+
+    .header-badge {
+      background: rgba(201,169,110,0.1);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1.25rem;
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-eyebrow span {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 700;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      font-weight: 300;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero-meta strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .hero-meta .dot { color: var(--border); }
+
+    .price-badge {
+      margin-top: 3rem;
+      border: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: inline-block;
+      background: rgba(201,169,110,0.05);
+    }
+
+    .price-badge .price-label {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+    }
+
+    .price-badge .price-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .price-badge .price-currency {
+      font-size: 1rem;
+      color: var(--gray);
+    }
+
+    /* SECTIONS */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+    section { padding: 5rem 2rem; }
+
+    .section-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: rgba(201,169,110,0.08);
+      line-height: 1;
+      margin-bottom: -1rem;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .section-desc {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 700px;
+    }
+
+    /* PAGE SECTION CARDS */
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .page-card {
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      padding: 2rem;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .page-card:hover {
+      border-color: rgba(201,169,110,0.4);
+      background: var(--bg3);
+    }
+
+    .page-card .page-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+    .page-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.7; }
+
+    /* FEATURES */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      background: var(--bg2);
+    }
+
+    .feature-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+    .feature-text h4 {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-text p { font-size: 0.8rem; color: var(--gray); }
+
+    /* PRICING */
+    .pricing-box {
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      padding: 3rem;
+      margin-top: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .plan-name {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-price {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-price span { font-size: 1.5rem; color: var(--gold); }
+
+    .plan-desc { color: var(--gray); font-size: 0.9rem; margin-bottom: 2.5rem; }
+
+    .price-breakdown {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .price-row .item { font-size: 0.9rem; color: var(--gray); }
+    .price-row .amount { font-size: 0.9rem; color: var(--white); font-weight: 600; }
+    .price-row.total .item { color: var(--white); font-weight: 700; }
+    .price-row.total .amount { color: var(--gold); font-size: 1.1rem; }
+
+    .guarantee {
+      background: rgba(201,169,110,0.05);
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--gray);
+      text-align: center;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section h2 em { font-style: italic; color: var(--gold); }
+    .cta-section p { color: var(--gray); max-width: 500px; margin: 0 auto 3rem; }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #25D366;
+      color: white;
+      padding: 1.125rem 2.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-whatsapp:hover { background: #20BA5A; transform: translateY(-2px); }
+
+    .btn-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--border);
+      padding: 1.125rem 2.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .btn-demo:hover {
+      border-color: var(--gold);
+      background: rgba(201,169,110,0.08);
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem;
+      text-align: center;
+      color: rgba(255,255,255,0.2);
+      font-size: 0.8rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header { padding: 1rem; }
+      .header-badge { display: none; }
+      .hero { padding: 6rem 1.5rem 3rem; }
+      .price-badge { padding: 1.5rem 2rem; }
+      .pricing-box { padding: 2rem 1.5rem; }
+      section { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="logo">
+      <div class="logo-mark">W</div>
+      <div>
+        <span class="logo-text">Web Vanguard</span>
+        <span class="logo-sub">Dubai's Digital Agency</span>
+      </div>
+    </a>
+    <div class="header-badge">Propuesta Exclusiva</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span></span>
+      Propuesta exclusiva para
+      <span></span>
+    </div>
+    <h1>
+      Apex Properties<br />
+      <em>Dubai</em>
+    </h1>
+    <p class="hero-tagline">
+      Una presencia digital de primer nivel para la agencia inmobiliaria de lujo más exclusiva de Dubai.
+      Diseñada para captar inversores internacionales y clientes UHNWI.
+    </p>
+    <div class="hero-meta">
+      <span>22 de marzo, 2026</span>
+      <span class="dot">·</span>
+      <strong>Propuesta Personalizada</strong>
+      <span class="dot">·</span>
+      <span>Válida 30 días</span>
+    </div>
+    <div class="price-badge">
+      <div class="price-label">Inversión Total</div>
+      <div class="price-amount"><span>AED </span>4,500</div>
+      <div class="price-currency" style="font-size:0.85rem;color:#888;margin-top:0.25rem;">Plan Growth — Pago único</div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECCIÓN 01 — HERO SECTION -->
+  <section>
+    <div class="container">
+      <div class="section-number">01</div>
+      <div class="section-label">Primera Impresión</div>
+      <h2 class="section-title">Hero <em>Cinematográfico</em></h2>
+      <p class="section-desc">
+        Un hero de pantalla completa con imágenes de lujo en parallax de las propiedades más exclusivas de Dubai.
+        Titular de impacto con tipografía <em>Playfair Display</em>, subtítulo que comunica exclusividad,
+        estadísticas de credibilidad (AED 2B+ en transacciones, 850+ propiedades vendidas) y dos CTAs:
+        "Ver Propiedades" y "Reservar Consulta". La animación de scroll crea una experiencia inmersiva
+        que posiciona a Apex como la agencia referente del mercado.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECCIÓN 02 — PROPIEDADES -->
+  <section>
+    <div class="container">
+      <div class="section-number">02</div>
+      <div class="section-label">Catálogo Premium</div>
+      <h2 class="section-title">Listings de <em>Propiedades</em></h2>
+      <p class="section-desc">
+        Grid de propiedades featured con fotografías de alta resolución, precio destacado en dorado,
+        badges exclusivos ("Exclusive Listing", "Off Market", "New Listing"), y especificaciones
+        detalladas (dormitorios, baños, m²). Cada tarjeta tiene hover animado con zoom de imagen
+        y CTA de "Ver Detalles". Sistema de filtrado por tipo y zona (Palm Jumeirah, Downtown, Marina).
+      </p>
+      <div class="pages-grid">
+        <div class="page-card">
+          <div class="page-icon">🏛️</div>
+          <h3>Signature Villas</h3>
+          <p>Palm Jumeirah ultra-luxury villas con vistas al mar. Listados desde AED 35M.</p>
+        </div>
+        <div class="page-card">
+          <div class="page-icon">🏙️</div>
+          <h3>Sky Penthouses</h3>
+          <p>Áticos en Downtown Dubai con vistas al Burj Khalifa. Listados desde AED 15M.</p>
+        </div>
+        <div class="page-card">
+          <div class="page-icon">🌊</div>
+          <h3>Marina Residences</h3>
+          <p>Apartamentos frente al agua en Dubai Marina. Desde AED 5M.</p>
+        </div>
+        <div class="page-card">
+          <div class="page-icon">🏡</div>
+          <h3>Estate Mansions</h3>
+          <p>Mansiones privadas en Emirates Hills. Exclusividad máxima, desde AED 60M.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECCIÓN 03 — SERVICIOS -->
+  <section>
+    <div class="container">
+      <div class="section-number">03</div>
+      <div class="section-label">Expertise Completo</div>
+      <h2 class="section-title">Servicios de <em>Alto Valor</em></h2>
+      <p class="section-desc">
+        Seis servicios premium presentados en grid con iconografía refinada: Luxury Sales,
+        Investment Advisory, Property Management, International Buyers, Off-Plan Projects y
+        Golden Visa Advisory. Diseño sobre fondo navy oscuro con cards de hover dorado que
+        generan confianza y autoridad ante compradores internacionales.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECCIÓN 04 — SOBRE NOSOTROS -->
+  <section>
+    <div class="container">
+      <div class="section-number">04</div>
+      <div class="section-label">La Historia</div>
+      <h2 class="section-title">Fundados en <em>Confianza</em></h2>
+      <p class="section-desc">
+        Layout split-screen con fotografía de propiedad de lujo a la izquierda y narrativa de
+        marca a la derecha. Badge "15+ Years" superpuesto, marco decorativo dorado y estadísticas
+        de credibilidad en cuatro columnas. Historia que conecta con inversores HNW internacionales
+        y refuerza la propuesta de valor única de Apex en Dubai.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECCIÓN 05 — GALERÍA -->
+  <section>
+    <div class="container">
+      <div class="section-number">05</div>
+      <div class="section-label">Portfolio Visual</div>
+      <h2 class="section-title">Galería de <em>Excelencia</em></h2>
+      <p class="section-desc">
+        Masonry grid de 6 fotografías de interiores y exteriores de propiedades de lujo en Dubai.
+        Hover con overlay oscuro y zoom suave. Primera imagen en formato vertical destacado.
+        Toda la galería es clickable y refuerza la calidad visual de las propiedades que maneja Apex.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECCIÓN 06 — TESTIMONIOS + CONTACTO -->
+  <section>
+    <div class="container">
+      <div class="section-number">06</div>
+      <div class="section-label">Confianza & Conversión</div>
+      <h2 class="section-title">Testimonios + <em>Formulario</em></h2>
+      <p class="section-desc">
+        Cuatro testimonios de clientes internacionales (inversor ruso, ejecutiva de Singapur,
+        director londinense, nacional emiratí) con foto, nombre y valoración 5 estrellas.
+        Seguido de una sección de contacto completa: información de oficina, mapa de Dubai
+        incrustado con estilo oscuro, y formulario de consulta con campos inteligentes (tipo
+        de búsqueda: comprar/invertir/alquilar, rango de presupuesto, mensaje personalizado).
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- QUÉ INCLUYE -->
+  <section style="background: #111111;">
+    <div class="container">
+      <div class="section-label">Stack Completo</div>
+      <h2 class="section-title" style="margin-bottom:0.5rem;">Todo lo que <em>incluye</em></h2>
+      <p style="color:#888;margin-bottom:2rem;font-size:0.9rem;">Nada se deja al azar. Cada componente está optimizado para Dubai's luxury market.</p>
+      <div class="features-grid">
+        <div class="feature-item"><div class="feature-icon">⚡</div><div class="feature-text"><h4>Next.js 14 + TypeScript</h4><p>Máximo rendimiento, SEO técnico perfecto, preparado para escalar.</p></div></div>
+        <div class="feature-item"><div class="feature-icon">✨</div><div class="feature-text"><h4>Animaciones Framer Motion</h4><p>Parallax hero, fade-in sections, hover effects. Experiencia premium.</p></div></div>
+        <div class="feature-item"><div class="feature-icon">🎨</div><div class="feature-text"><h4>Identidad Navy & Gold</h4><p>Paleta exclusiva: navy #0A1628 + dorado #C9A96E. Sofisticación absoluta.</p></div></div>
+        <div class="feature-item"><div class="feature-icon">📱</div><div class="feature-text"><h4>100% Mobile-First</h4><p>Perfecto en todos los dispositivos. El 70% del tráfico llega desde móvil.</p></div></div>
+        <div class="feature-item"><div class="feature-icon">🔍</div><div class="feature-text"><h4>SEO Dubai-Local</h4><p>Keywords específicas: luxury real estate Dubai, Palm Jumeirah villas, etc.</p></div></div>
+        <div class="feature-item"><div class="feature-icon">🤖</div><div class="feature-text"><h4>Schema.org RealEstateAgent</h4><p>JSON-LD estructurado. Google entiende exactamente qué ofreces.</p></div></div>
+        <div class="feature-item"><div class="feature-icon">📧</div><div class="feature-text"><h4>Formulario Formspree</h4><p>Leads directo a email. Campos de budget y tipo de cliente inteligentes.</p></div></div>
+        <div class="feature-item"><div class="feature-icon">💬</div><div class="feature-text"><h4>Botón WhatsApp Flotante</h4><p>Conversión directa. Fixed bottom-right, color #25D366, mensaje predefinido.</p></div></div>
+        <div class="feature-item"><div class="feature-icon">🗺️</div><div class="feature-text"><h4>Google Maps Integrado</h4><p>Embed real de Dubai World Trade Centre. Credibilidad local instantánea.</p></div></div>
+        <div class="feature-item"><div class="feature-icon">📊</div><div class="feature-text"><h4>Google Analytics 4</h4><p>Tracking completo desde día 1. Datos para optimizar conversiones.</p></div></div>
+        <div class="feature-item"><div class="feature-icon">🤖</div><div class="feature-text"><h4>llms.txt — AI SEO</h4><p>Optimizado para ser encontrado por ChatGPT, Perplexity y AI search.</p></div></div>
+        <div class="feature-item"><div class="feature-icon">🚀</div><div class="feature-text"><h4>Deploy en Vercel</h4><p>CDN global, HTTPS, 99.9% uptime. URL personalizada incluida.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRECIOS -->
+  <section>
+    <div class="container">
+      <div class="section-label">Inversión</div>
+      <h2 class="section-title">Desglose de <em>Precios</em></h2>
+      <div class="pricing-box">
+        <div class="plan-name">Plan Growth — Recomendado</div>
+        <div class="plan-price"><span>AED </span>4,500</div>
+        <div class="plan-desc">Inversión única. Sin mensualidades ocultas. Sin sorpresas.</div>
+
+        <div class="price-breakdown">
+          <div class="price-row">
+            <span class="item">🎨 Diseño custom Navy & Gold (6 secciones)</span>
+            <span class="amount">AED 1,200</span>
+          </div>
+          <div class="price-row">
+            <span class="item">⚡ Desarrollo Next.js 14 + TypeScript</span>
+            <span class="amount">AED 1,400</span>
+          </div>
+          <div class="price-row">
+            <span class="item">🏡 4 Listings de propiedades con galería</span>
+            <span class="amount">AED 400</span>
+          </div>
+          <div class="price-row">
+            <span class="item">🔍 SEO completo (Schema, sitemap, llms.txt)</span>
+            <span class="amount">AED 600</span>
+          </div>
+          <div class="price-row">
+            <span class="item">📧 Formulario + WhatsApp + Maps</span>
+            <span class="amount">AED 300</span>
+          </div>
+          <div class="price-row">
+            <span class="item">🚀 Deploy Vercel + dominio .ae (1 año)</span>
+            <span class="amount">AED 600</span>
+          </div>
+          <div class="price-row total">
+            <span class="item">Total</span>
+            <span class="amount">AED 4,500</span>
+          </div>
+        </div>
+
+        <div class="guarantee">
+          🛡️ <strong style="color:white;">Garantía de satisfacción:</strong> Si no quedas 100% satisfecho con el diseño en la primera revisión, te devolvemos el importe completo. Sin preguntas.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="section-label" style="justify-content:center;">¿Listo para empezar?</div>
+    <h2>Hagámoslo <em>realidad</em></h2>
+    <p>Tu web estará live en 7 días hábiles. El mercado inmobiliario de Dubai no espera.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/971501234567?text=Hola%2C%20he%20visto%20la%20propuesta%20de%20Web%20Vanguard%20para%20Apex%20Properties%20y%20quiero%20empezar" class="btn-whatsapp" target="_blank">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Contactar por WhatsApp
+      </a>
+      <a href="https://apex-properties.vercel.app" class="btn-demo" target="_blank">
+        Ver Web Demo →
+      </a>
+    </div>
+    <p style="margin-top:2rem;font-size:0.8rem;color:rgba(255,255,255,0.3);">
+      Web Vanguard · Dubai Digital Agency · webvanguard.ae
+    </p>
+  </section>
+
+  <footer>
+    © 2026 Web Vanguard. All rights reserved. Propuesta confidencial para Apex Properties Dubai.
+  </footer>
+
+</body>
+</html>
