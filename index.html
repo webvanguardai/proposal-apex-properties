@@ -454,6 +454,18 @@
       font-size: 0.8rem;
     }
 
+    /* LANGUAGE TOGGLE */
+    .header-right { display: flex; align-items: center; gap: 1rem; }
+    .lang-toggle { display: flex; align-items: center; border: 1px solid var(--border); overflow: hidden; }
+    .lang-btn { background: transparent; border: none; color: var(--gray); font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 0.9rem; cursor: pointer; transition: all 0.25s; }
+    .lang-btn.active { background: var(--gold); color: #0A0A0A; }
+    .lang-btn:hover:not(.active) { color: var(--gold); }
+
+    /* RTL support */
+    html[dir="rtl"] .section-label::before { display: none; }
+    html[dir="rtl"] .section-label::after { content: ''; width: 30px; height: 1px; background: var(--gold); }
+    html[dir="rtl"] .hero-eyebrow span:first-child, html[dir="rtl"] .hero-eyebrow span:last-child { display: none; }
+
     /* Responsive */
     @media (max-width: 600px) {
       header { padding: 1rem; }
@@ -476,35 +488,38 @@
         <span class="logo-sub">Dubai's Digital Agency</span>
       </div>
     </a>
-    <div class="header-badge">Propuesta Exclusiva</div>
+    <div class="header-right">
+      <div class="header-badge" data-en="Exclusive Proposal" data-ar="عرض حصري">Exclusive Proposal</div>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+        <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">AR</button>
+      </div>
+    </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-eyebrow">
       <span></span>
-      Propuesta exclusiva para
+      <span data-en="Exclusive proposal for" data-ar="عرض حصري لـ">Exclusive proposal for</span>
       <span></span>
     </div>
     <h1>
       Apex Properties<br />
       <em>Dubai</em>
     </h1>
-    <p class="hero-tagline">
-      Una presencia digital de primer nivel para la agencia inmobiliaria de lujo más exclusiva de Dubai.
-      Diseñada para captar inversores internacionales y clientes UHNWI.
-    </p>
+    <p class="hero-tagline" data-en="A first-class digital presence for Dubai's most exclusive luxury real estate agency. Designed to capture international investors and UHNWI clients." data-ar="حضور رقمي من الدرجة الأولى لأكثر وكالات العقارات الفاخرة حصرية في دبي. مصممة لاستقطاب المستثمرين الدوليين وعملاء UHNWI.">A first-class digital presence for Dubai's most exclusive luxury real estate agency. Designed to capture international investors and UHNWI clients.</p>
     <div class="hero-meta">
-      <span>22 de marzo, 2026</span>
+      <span data-en="March 22, 2026" data-ar="22 مارس 2026">March 22, 2026</span>
       <span class="dot">·</span>
-      <strong>Propuesta Personalizada</strong>
+      <strong data-en="Custom Proposal" data-ar="عرض مخصص">Custom Proposal</strong>
       <span class="dot">·</span>
-      <span>Válida 30 días</span>
+      <span data-en="Valid 30 days" data-ar="صالح لمدة 30 يوماً">Valid 30 days</span>
     </div>
     <div class="price-badge">
-      <div class="price-label">Inversión Total</div>
+      <div class="price-label" data-en="Total Investment" data-ar="إجمالي الاستثمار">Total Investment</div>
       <div class="price-amount"><span>AED </span>4,500</div>
-      <div class="price-currency" style="font-size:0.85rem;color:#888;margin-top:0.25rem;">Plan Growth — Pago único</div>
+      <div class="price-currency" style="font-size:0.85rem;color:#888;margin-top:0.25rem;" data-en="Growth Plan — One-time payment" data-ar="خطة النمو — دفعة واحدة">Growth Plan — One-time payment</div>
     </div>
   </section>
 
@@ -730,8 +745,27 @@
   </section>
 
   <footer>
-    © 2026 Web Vanguard. All rights reserved. Propuesta confidencial para Apex Properties Dubai.
+    <span data-en="© 2026 Web Vanguard. All rights reserved. Confidential proposal for Apex Properties Dubai." data-ar="© 2026 Web Vanguard. جميع الحقوق محفوظة. عرض سري لـ Apex Properties Dubai.">© 2026 Web Vanguard. All rights reserved. Confidential proposal for Apex Properties Dubai.</span>
   </footer>
+
+  <script>
+    function setLang(lang) {
+      const html = document.documentElement;
+      html.lang = lang;
+      html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+      document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (text) el.innerHTML = text;
+      });
+      localStorage.setItem('wv-lang', lang);
+    }
+    (function() {
+      const saved = localStorage.getItem('wv-lang');
+      if (saved === 'ar') setLang('ar');
+    })();
+  </script>
 
 </body>
 </html>
